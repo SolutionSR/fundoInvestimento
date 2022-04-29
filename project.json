@@ -5,7 +5,7 @@
   "dependencies": {
     "Auxiliobits.DataTableToJson.Activities": "[1.0.0]",
     "BalaReva.EasyDataTable.Activities": "[3.0.1]",
-    "Mapeamento.Seletores.Topazio": "[1.0.4]",
+    "Mapeamento.Seletores.Topazio": "[1.0.11]",
     "UiPath.DataService.Activities": "[21.10.0]",
     "UiPath.Excel.Activities": "[2.11.4]",
     "UiPath.System.Activities": "[21.10.4]",
@@ -17,14 +17,14 @@
   "entitiesStores": [
     {
       "serviceDocument": ".entities/EntitiesStore.json",
-      "tenantName": "DefaultTenant",
+      "tenantName": "Topazio",
       "namespace": "Bovespa",
-      "uniqueReference": "32GzrCzINyfd3PMS7rGPNVMo2WPTUQisREJl1tT/3zc="
+      "uniqueReference": "yGaeXLYA+aOqRg0kwTH9CO2c2wjcvMuk2u1TAg69L8g="
     }
   ],
   "schemaVersion": "4.0",
   "studioVersion": "21.10.5.0",
-  "projectVersion": "1.0.4",
+  "projectVersion": "1.0.2",
   "runtimeOptions": {
     "autoDispose": false,
     "netFrameworkLazyLoading": false,
