@@ -358,7 +358,7 @@
                         </uix:TargetAnchorable>
                       </uix:NClick.Target>
                     </uix:NClick>
-                    <ui:GetLastDownloadedFile DisplayName="Wait for Download" DownloadFolder="[downloadBrowser]" File="[arquivoBaixado]" sap:VirtualizedContainerService.HintSize="434,455" sap2010:WorkflowViewState.IdRef="GetLastDownloadedFile_2" Timeout="3000">
+                    <ui:GetLastDownloadedFile DisplayName="Wait for Download" DownloadFolder="[downloadBrowser]" File="[arquivoBaixado]" sap:VirtualizedContainerService.HintSize="434,455" sap2010:WorkflowViewState.IdRef="GetLastDownloadedFile_2" Timeout="300">
                       <ui:GetLastDownloadedFile.Body>
                         <ActivityAction>
                           <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,248" sap2010:WorkflowViewState.IdRef="Sequence_28">
