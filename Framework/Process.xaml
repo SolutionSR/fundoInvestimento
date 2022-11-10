@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Process" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:b="clr-namespace:Bovespa;assembly=DataService.Bovespa" xmlns:be="clr-namespace:BalaReva.EasyDataTable;assembly=BalaReva.EasyDataTable" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:nj="clr-namespace:Newtonsoft.Json;assembly=Newtonsoft.Json" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:si="clr-namespace:System.IO;assembly=mscorlib" xmlns:uascw="clr-namespace:UiPath.Activities.System.Compression.Workflow;assembly=UiPath.System.Activities" xmlns:uda="clr-namespace:UiPath.DataService.Activities;assembly=UiPath.DataService.Activities.Core" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Process" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:b="clr-namespace:Bovespa;assembly=DataService.Bovespa" xmlns:be="clr-namespace:BalaReva.EasyDataTable;assembly=BalaReva.EasyDataTable" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:nj="clr-namespace:Newtonsoft.Json;assembly=Newtonsoft.Json" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:si="clr-namespace:System.IO;assembly=mscorlib" xmlns:uascw="clr-namespace:UiPath.Activities.System.Compression.Workflow;assembly=UiPath.System.Activities" xmlns:uda="clr-namespace:UiPath.DataService.Activities;assembly=UiPath.DataService.Activities.Core" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property sap2010:Annotation.AnnotationText="Transaction item to be processed." Name="in_TransactionItem" Type="InArgument(ui:QueueItem)" />
     <x:Property sap2010:Annotation.AnnotationText="Dictionary structure to store configuration data of the process (settings, constants and assets)." Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
@@ -6,7 +6,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>3233,10749</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>3233,11251</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="57">
@@ -70,7 +70,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <sco:Collection x:TypeArguments="AssemblyReference">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="46">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -116,9 +116,10 @@
       <AssemblyReference>BalaReva.EasyDataTable</AssemblyReference>
       <AssemblyReference>System.Data.Entity</AssemblyReference>
       <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
-    </sco:Collection>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+    </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="3243,10684" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="3243,11186" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="si:FileInfo" Name="arquivoBaixado" />
       <Variable x:TypeArguments="sd:DataTable" Name="tabela_Extracao" />
@@ -296,7 +297,7 @@
         <InArgument x:TypeArguments="x:String">[camExtracMeta.Replace("""","")]</InArgument>
       </Assign.Value>
     </Assign>
-    <If Condition="[in_TransactionItem.Progress=&quot;extração pendente&quot; or in_TransactionItem.RetryNo=0]" DisplayName="Extracao pendente" sap:VirtualizedContainerService.HintSize="3181,3195" sap2010:WorkflowViewState.IdRef="If_1">
+    <If Condition="[in_TransactionItem.Progress=&quot;extração pendente&quot; or in_TransactionItem.RetryNo=0]" DisplayName="Extracao pendente" sap:VirtualizedContainerService.HintSize="3181,3697" sap2010:WorkflowViewState.IdRef="If_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -304,13 +305,14 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <If.Then>
-        <Sequence sap:VirtualizedContainerService.HintSize="654,2998" sap2010:WorkflowViewState.IdRef="Sequence_9">
+        <Sequence sap:VirtualizedContainerService.HintSize="654,3500" sap2010:WorkflowViewState.IdRef="Sequence_9">
           <Sequence.Variables>
             <Variable x:TypeArguments="x:String" Name="from" />
             <Variable x:TypeArguments="x:String" Name="para" />
             <Variable x:TypeArguments="x:String" Name="deOnde" />
             <Variable x:TypeArguments="x:String" Name="caminhoFinal" />
             <Variable x:TypeArguments="x:String" Name="nomeArquivobaixado" />
+            <Variable x:TypeArguments="x:String" Name="caminhoSQL" />
           </Sequence.Variables>
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -426,7 +428,25 @@
             </Assign.Value>
           </Assign>
           <ui:MoveFile ContinueOnError="{x:Null}" Destination="[caminhoExtracao]" DisplayName="Move File" sap:VirtualizedContainerService.HintSize="592,167" sap2010:WorkflowViewState.IdRef="MoveFile_2" Overwrite="True" Path="[camExtracMeta+nomeArquivobaixado+&quot;\&quot;+caminhoFinal]" />
-          <ui:CopyFile ContinueOnError="{x:Null}" Destination="[rootpath+&quot;SQLAutomaticEntry\&quot;+caminhoFinal]" DisplayName="Copy File - sql Automatic" sap:VirtualizedContainerService.HintSize="592,167" sap2010:WorkflowViewState.IdRef="CopyFile_1" Overwrite="False" Path="[caminhoExtracao]" />
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="592,101" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Trace" Message="[rootpath+&quot;SQLAutomaticEntry\&quot;+caminhoFinal]" />
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="592,101" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Trace" Message="[caminhoExtracao]" />
+          <Assign sap:VirtualizedContainerService.HintSize="592,70" sap2010:WorkflowViewState.IdRef="Assign_48">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:String">[caminhoSQL]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:String">[rootpath+"SQLAutomaticEntry\"+caminhoFinal]</InArgument>
+            </Assign.Value>
+          </Assign>
+          <Assign sap:VirtualizedContainerService.HintSize="592,70" sap2010:WorkflowViewState.IdRef="Assign_49">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:String">[caminhoSQL]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:String">[caminhoSQL.Replace("""","")]</InArgument>
+            </Assign.Value>
+          </Assign>
+          <ui:CopyFile ContinueOnError="{x:Null}" Destination="[caminhoSQL]" DisplayName="Copy File - sql Automatic" sap:VirtualizedContainerService.HintSize="592,167" sap2010:WorkflowViewState.IdRef="CopyFile_1" Overwrite="False" Path="[caminhoExtracao]" />
           <ui:DeleteFolderX DisplayName="Delete Folder" sap:VirtualizedContainerService.HintSize="592,89" sap2010:WorkflowViewState.IdRef="DeleteFolderX_1" Path="[camExtracMeta+nomeArquivobaixado]" Recursive="True" />
           <ui:SetTransactionProgress TimeoutMS="{x:Null}" DisplayName="Set Transaction Progress" sap:VirtualizedContainerService.HintSize="592,142" sap2010:WorkflowViewState.IdRef="SetTransactionProgress_2" Progress="formatação pendente" TransactionItem="[in_TransactionItem]">
             <sap:WorkflowViewStateService.ViewState>
