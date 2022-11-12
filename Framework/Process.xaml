@@ -116,7 +116,6 @@
       <AssemblyReference>BalaReva.EasyDataTable</AssemblyReference>
       <AssemblyReference>System.Data.Entity</AssemblyReference>
       <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="3243,11186" sap2010:WorkflowViewState.IdRef="Sequence_1">
@@ -446,7 +445,7 @@
               <InArgument x:TypeArguments="x:String">[caminhoSQL.Replace("""","")]</InArgument>
             </Assign.Value>
           </Assign>
-          <ui:CopyFile ContinueOnError="{x:Null}" Destination="[caminhoSQL]" DisplayName="Copy File - sql Automatic" sap:VirtualizedContainerService.HintSize="592,167" sap2010:WorkflowViewState.IdRef="CopyFile_1" Overwrite="False" Path="[caminhoExtracao]" />
+          <ui:CopyFile ContinueOnError="{x:Null}" Destination="[caminhoSQL]" DisplayName="Copy File - sql Automatic" sap:VirtualizedContainerService.HintSize="592,167" sap2010:WorkflowViewState.IdRef="CopyFile_1" Overwrite="True" Path="[caminhoExtracao]" />
           <ui:DeleteFolderX DisplayName="Delete Folder" sap:VirtualizedContainerService.HintSize="592,89" sap2010:WorkflowViewState.IdRef="DeleteFolderX_1" Path="[camExtracMeta+nomeArquivobaixado]" Recursive="True" />
           <ui:SetTransactionProgress TimeoutMS="{x:Null}" DisplayName="Set Transaction Progress" sap:VirtualizedContainerService.HintSize="592,142" sap2010:WorkflowViewState.IdRef="SetTransactionProgress_2" Progress="formatação pendente" TransactionItem="[in_TransactionItem]">
             <sap:WorkflowViewStateService.ViewState>
