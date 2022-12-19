@@ -1,0 +1,293 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Download_Fundos" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:si="clr-namespace:System.IO;assembly=mscorlib" xmlns:this="clr-namespace:" xmlns:uascw="clr-namespace:UiPath.Activities.System.Compression.Workflow;assembly=UiPath.System.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="downloadBrowser" Type="InArgument(x:String)" />
+    <x:Property Name="mesStr" Type="InArgument(x:String)" />
+    <x:Property Name="ano" Type="InArgument(x:Int32)" />
+    <x:Property Name="camExtracMeta" Type="InArgument(x:String)" />
+    <x:Property Name="caminhoExtracao" Type="InArgument(x:String)" />
+    <x:Property Name="in_TransactionItem" Type="InArgument(ui:QueueItem)" />
+    <x:Property Name="StatusFormPend" Type="OutArgument(x:Boolean)" />
+  </x:Members>
+  <this:Download_Fundos.downloadBrowser>
+    <InArgument x:TypeArguments="x:String" />
+  </this:Download_Fundos.downloadBrowser>
+  <this:Download_Fundos.camExtracMeta>
+    <InArgument x:TypeArguments="x:String" />
+  </this:Download_Fundos.camExtracMeta>
+  <this:Download_Fundos.caminhoExtracao>
+    <InArgument x:TypeArguments="x:String" />
+  </this:Download_Fundos.caminhoExtracao>
+  <this:Download_Fundos.in_TransactionItem>
+    <InArgument x:TypeArguments="ui:QueueItem" />
+  </this:Download_Fundos.in_TransactionItem>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>879,3085</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>Download_Fundos_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="34">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.Activities.System.Encode</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Activities.System.Compression.Workflow</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="30">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.DataService.Activities.Core</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Web.Activities</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Download_Fundos" sap:VirtualizedContainerService.HintSize="614,3020" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Default="[&quot;Fundos de Investimento - Informes Diários (&quot;+mesStr+&quot;/&quot;+ano.ToString+&quot;)&quot;]" Name="innertext" />
+      <Variable x:TypeArguments="si:FileInfo" Name="arquivoBaixado" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <Sequence DisplayName="Extracao" sap:VirtualizedContainerService.HintSize="572,2930" sap2010:WorkflowViewState.IdRef="Sequence_4">
+      <Sequence.Variables>
+        <Variable x:TypeArguments="x:String" Name="nomeArquivobaixado" />
+        <Variable x:TypeArguments="x:String" Name="caminhoFinal" />
+        <Variable x:TypeArguments="x:String" Name="rootpath" />
+        <Variable x:TypeArguments="x:String" Name="caminhoSQL" />
+      </Sequence.Variables>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <uix:NApplicationCard WebDriverMode="{x:Null}" AttachMode="SingleWindow" CloseMode="Always" DisplayName="Fundos de Investimento" sap:VirtualizedContainerService.HintSize="510,1069" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" ScopeGuid="d15123d1-ccd0-4196-a9d0-4d6b6e926fc9" Timeout="60" Version="V1">
+        <uix:NApplicationCard.Body>
+          <ActivityAction x:TypeArguments="x:Object">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+            </ActivityAction.Argument>
+            <Sequence DisplayName="Fazer" sap:VirtualizedContainerService.HintSize="476,843" sap2010:WorkflowViewState.IdRef="Sequence_3">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:MaximizeWindow Window="{x:Null}" DisplayName="Maximize Window" sap:VirtualizedContainerService.HintSize="434,32" sap2010:WorkflowViewState.IdRef="MaximizeWindow_1" />
+              <uix:NClick ClickType="Single" DisplayName="Click 'Botão Explorar'" sap:VirtualizedContainerService.HintSize="434,166" sap2010:WorkflowViewState.IdRef="NClick_1" InteractionMode="Simulate" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="d15123d1-ccd0-4196-a9d0-4d6b6e926fc9" Version="V1">
+                <uix:NClick.Target>
+                  <uix:TargetAnchorable BrowserURL="http://dados.cvm.gov.br/dataset/fi-doc-inf_diario" ContentHash="rUDifBISLEWcv9zPliLBqg" DesignTimeRectangle="1107, 438, 115, 34" ElementType="Text" FriendlyName="'Botão Explorar'" FullSelectorArgument="&lt;webctrl aaname='              Explorar            ' idx='13' parentid='dataset-resources' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='              Explorar            ' type='' parentid='dataset-resources' tag='A' class='btn btn-primary dropdown-toggle' check:innerText='Explorar' /&gt;" Guid="17964462-0724-4f6f-a5f1-ff977acc1bb6" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAHcAAAAmCAYAAAD+6wTYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIJSURBVHhe7ZsxSgRBEEW9h6AeykgwM1IQTM0UcwXPsrlewQMYeJF2v/iXsvzd2zvOjE5ZHx5M16+e5LGbzV7JhE3KDZwvcl9e38rx3WM5PL0q+yeXyUKAL3iDP5uNXBRYOji7LkfnN+Xo4jZZCmtf8AZ/VvBGLsx/iFWXk0UAf/DIbOTCev5iF87aHzwyG7n475YXkkUBj0zKDUbKDUzKDUzKDUzKDcyschE1T6ZhdrmI6pLx+RW5iOpJK2p/KIzqIjCJ3N6ou6AVtT8URnURGF3urmm9Q3WE6Tkz7NSOmiO1zj/bM8O532VsPwWjyh2S1ntUR5htZx/26o6d2fT0tWy7NyWjyR0S9R7QSmuv1qmznQ25g3CmYPwZsXtTMpncbTuqJ63UdnvmTO+5d8fi4+d21/Owev7c+h506k6L0eWqjjCqszCq8zA9c6b33LujOkZ1LZTgIWLB7HLV3MOozuJT69TZzn5ypzZnaucW96unz+3y8ax2ephVbi+t+J1tZx/26o6d2ajezuzcx/f2TgtI/YlYMJpcgKj5rrTid3rODDu1o+ZIrfNz2yH27J/n4k/KHQNGdf+FUeX+JRjV/RdSbmDCyk1SbmhSbmBSbmBSbmCk3PycJAC1z0nyQ7DlU/0QLD/hXDBrX/AGf/ITTgQFzGMJ/93JMoAveLNikS9yM7GScsOmlHet+FWqciIcQQAAAABJRU5ErkJggg==" InformativeScreenshot="d9cfc0b858a767d5ca1e1bea5dc14bc5.png" Reference="Bv_A5Ya23E2Tr8jUxhCB5A/_lpSzhlqfEOO20-1XEG1dg" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Fundos de Investimento: Documentos: Informe Diário - Conjuntos de dados - Portal Dados Abertos CVM' /&gt;" SearchSteps="FuzzySelector" Visibility="Interactive">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                        <uix:Target DesignTimeRectangle="486, 459, 736, 17" ElementType="Text" FriendlyName="'Botão Explorar'" FullSelectorArgument="&lt;webctrl idx='13' parentid='dataset-resources' tag='P' /&gt;" FuzzySelectorArgument="[String.Format(&quot;&lt;webctrl type='' parentid='dataset-resources' tag='P' class='description' aaname='{0}' check:innerText='{0}' /&gt;&quot;, innerText)]" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAuQAAAAVCAYAAAAO9fvwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAUvSURBVHhe7d2/aiRHEMfxewlHBvueQH9fxckZnN0lNhzn1NHZOHfgV7hMqZ07v0y5jDAoUKJAIIQQ0nh/y5Yplbt7ukczu7Or7wcKTXfVtLSa5HeD4F51GNXp6enq6v9OTk5WV0998e6P7uzsrDs/P+8uLi66y8vL7urqqru+vu5ubm6629vb7u7urru/v+8eHh66x8fH1Z0AAOCl+fLb993rH35pKpPqWfX1rUyq5yvK9VJrv/ece3L7Jrcu1W9//rWa7pbXqZma0nM0BPKREcgBAMCUpgrktVUSZ/rWkfVT9/g9L9X3e34/in1/T6kUxJ8TxlUE8gkRyAEAwJSGBHKVpPZbqyTO1KyN9VIzqX3J9eK+74lfx+t1FYF8QgRyAAAwpU0H8jHKpHovpQjkEyKQAwCAKQ0N5HMqk+q9lFp7IH/zpuv291eLHUcgf9mOj49XVwAATINAvhs1SSB/tThJwTv6+DG9n5M7Z1tsQyAfOzS2nKfZuYdW+xl9RbV7Uc3MEHauvsbatOf8DP7e0mcas5eaA4A52YVATg0M5HrDrbBs9fnzqoEnCOR52xJ0Uj/nnH92/7Nty++4ln2e+LlKn3mKHgDMCYF8N+pJILeA/enTaidDgdxCuGZ1j7Ez9Dbcs33f0xk6S2/BrWfirNHaenN/e/7cQL63t7cM5AcHB8uyQH50dLSsGMgVHKw8W8eerfv2WsSz7Gvcr9kTW6e++tm4Nrbf2jO5nt+PM3Zmaj/11dg9cV9KPc/3a2bjmfGe2IvzYuuWWbHruGflxbUX7/dq74tKZwLAnBDId6OSb8h9ME7xgVy09iFeoTkGac/O1xm6tnsVsEvnWIA38fvOzRiBfH/xIe0N+eHh4bLsDbmCggXyGBpioIhrk7uWuK4Rz8udn7uW2GtdG38ttT2vZr/2XF0Pvc+La1M7J7nZ1n3RdVx7ud7Q+6LaM6KWXmkWADaJQL4blXxD3hrI+4K0+Lfgdn4M2FE8J671PeP3mZOx3pD7QO7/ZEUhoTaQe7leaa5W7XlD5qRl3dLLyc3VnlWaG9rLSZ3hyyut7Tq1Z2p7kpsdep/XcoaX25dUrzQPAJtEIN+NSr4h7xMDeVyngrMP3usM5O8Xn8/+EfDhw2pzTdYdyGMZfy25XmnOaM8qxe/HmVyvdk5a1rqO5eX2vVzP78cZO9PKpOZMqSdaW+X0neH586yMXce9WMZfS5zz/dy1lNaxZ1rO8HL7kuqV5gFgk77+7sfu9fc/J0MetSW1eH56jmZQIFcgjqE6FZzt7711PTSQx2Cva+3N1SbfkHux59e5aymdmVN73pA5aVnHXklutma/9D3H6EW53hhniPX8TMtZtbN995VmpWav9j6T65XuAYBN+ubX37uv3v6UDnrUVpSen56j+e9PVkohWdRPzSpg276VBXdbK5jbPblAXjpHAd32fFifI/5kJX/ekDlpWQ/tean92nN1nevJGD2vdk76ZlvWQ2dr74v7ktqT2jNThvYAYJNO//5n+XZ1Gcp5U75dtXheem56fnqOZhFxMaZ1BnLR2sorreO8rf1ei3iW19ez8sZYW0WlnvEzudm45+d8LzXn2X1xX0o9z/drZnNn5vZS80Nna++Lc37GyqvZj/2+HgDMmcKc3rAq2OlvkantKD0vPTcfxoVAPrLnBnL+p060IjyOj98pAGCdCOQjI5BjEwiQ4+F3CQBYNwL5yAjkAAAAaEEgHxmBHAAAAC0I5CMjkAMAAKAFgXxkBHIAAADU67p/ASjjdK2U5F9SAAAAAElFTkSuQmCC" SearchSteps="FuzzySelector" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NClick.Target>
+              </uix:NClick>
+              <ui:GetLastDownloadedFile DisplayName="Wait for Download" DownloadFolder="[downloadBrowser]" File="[arquivoBaixado]" sap:VirtualizedContainerService.HintSize="434,473" sap2010:WorkflowViewState.IdRef="GetLastDownloadedFile_1" Timeout="300">
+                <ui:GetLastDownloadedFile.Body>
+                  <ActivityAction>
+                    <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="400,256" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                      <Sequence.Variables>
+                        <Variable x:TypeArguments="x:String" Name="dataFundoInvestimento" />
+                      </Sequence.Variables>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <uix:NClick ClickType="Single" DisplayName="Click 'Botão - Ir para recurso'" sap:VirtualizedContainerService.HintSize="358,166" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="d15123d1-ccd0-4196-a9d0-4d6b6e926fc9" Version="V1">
+                        <uix:NClick.Target>
+                          <uix:TargetAnchorable BrowserURL="http://dados.cvm.gov.br/dataset/fi-doc-inf_diario" ContentHash="R3WMxJLQL0ecEJmWcmwSBw" DesignTimeRectangle="1108, 506, 166, 26" ElementType="Text" FriendlyName="'Botão - Ir para recurso'" FullSelectorArgument="&lt;webctrl aaname='                                     Ir para recurso            *' href='http://dados.cvm.gov.br/dados/FI/DOC/INF_DIARIO/DADOS/inf_diario*' idx='12' parentid='dataset-resources' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='                                     Ir para recurso            *' href='http://dados.cvm.gov.br/dados/FI/DOC/INF_DIARIO/DADOS/inf_diario*' type='' parentid='dataset-resources' tag='A' class='resource-url-analytics' check:innerText='Ir para recurso' /&gt;" Guid="2283aa38-98a9-4f56-996d-6853223d3fa5" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAKoAAAAeCAYAAAC8LYXhAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIqSURBVHhe7ZxdbsJADIR7J27O/wucgkDgDS6ylau6slzvrkNYYqL5pJWIZ+w0K8shgPp1v9/T4XBIAERkuVymrusSGhWEhhr1dDqhUUFsMFHBR0CNervd0KggNpvNJvV9j0YFscFEBR/BdrtN1+sVjQpiE+Kpf7FY/FsASGiiXi6Xto1qNSIvJhcHgKCJ2vRhytt0nkb11gLzY71et731e5pLNigvi1wczJ/JJ6rVnLkcy6NzJdpj+aSmdT7WGh/ruAXr2svHOs7ktJyX4dc6l49ljJGapUdg0ok6dHOkz5NneXQNjdZL+YwVY56pUfJ7ckv5hPZrrNjU0EQ9n8/vb1SK8/IivZ48y1PLG3oOouTz/g3e8z6TO6ZeFCaZqBTjxXg2Z4yfycXkYiwvk8vRWJrO5cXI1xpL8+RSnJfE8udqTEnzz1FzF+3ZMI30DPUztfN6zlGrIbG0kp8YU69Wm6j5PTXeTYinfuIVG6yxPLUaQ3TGijFD/cSYerXaRM3vqfFuaKI2/cDfe9Gv2GANebSvVEP7tU7UcjSeGoSMab2mlXTCymE8/gjsdru2E5WgC68tD9LnyWEPn8PK0Zr0WH6ilKPx1LA8QzTpsfyEzpFIzdIj0Pw96pRE3XQwnP1+j0YF8cFEBR8BNSp+OA3CM+tbP5gPq9Wq/e9RARgL3fqbftcPwCugiYpbPwjP31eoj8cjHY/H3zAAsaCJ+vOfUtCoIDI0UbuuS9/lz4iSSOi2/QAAAABJRU5ErkJggg==" InformativeScreenshot="5cbdb0d86fe9ec96164e237583322b4e.png" Reference="Bv_A5Ya23E2Tr8jUxhCB5A/0EmRw64Zz0mj3Zpbm10n8g" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Fundos de Investimento: Documentos: Informe Diário - Conjuntos de dados - Portal Dados Abertos CVM' /&gt;" SearchSteps="FuzzySelector, Image" Visibility="Interactive" />
+                        </uix:NClick.Target>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </uix:NClick>
+                    </Sequence>
+                  </ActivityAction>
+                </ui:GetLastDownloadedFile.Body>
+              </ui:GetLastDownloadedFile>
+            </Sequence>
+          </ActivityAction>
+        </uix:NApplicationCard.Body>
+        <uix:NApplicationCard.TargetApp>
+          <uix:TargetApp Area="0, 0, 0, 0" BrowserType="Chrome" ContentHash="s3lf6qY9q0S2jaRtL3pnsw" IconBase64="iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAOwgAADsIBFShKgAAAABh0RVh0U29mdHdhcmUAcGFpbnQubmV0IDQuMC45bDN+TgAAAKBJREFUOE+FkNENw0AIQ+l66Sb96B6dIeoUGSTDdAAaI3GykCFI/jjO7+kSc3ez97PNfnxd7VdC0Mz2eTkEIemmEwBmQStRgoSrQEqqgGHk+s5ZwgIFZ1pJCiZ4lKTgdz5uBXyPfoAsmCS8z26AVaAkfOZegOsnXkW+ZEjCeBmGBZOE99kNrgqUhM/cC04JEIYkjGA6ATLCCGYSIC2MmNkfnN+xVJez1p4AAAAASUVORK5CYII=" InformativeScreenshot="13cd2e0cdc3a08d1d25c79b24c7effdc.png" Reference="Bv_A5Ya23E2Tr8jUxhCB5A/8oDAbuGljE61RXvTYPHwLQ" Selector="&lt;html app='chrome.exe' title='Fundos de Investimento: Documentos: Informe Diário - Conjuntos de dados - Portal Dados Abertos CVM' /&gt;" Url="http://dados.cvm.gov.br/dataset/fi-doc-inf_diario" />
+        </uix:NApplicationCard.TargetApp>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </uix:NApplicationCard>
+      <uascw:ExtractFiles DestinationFolderInfo="{x:Null}" Password="{x:Null}" CodePage="Default" DestinationFolder="[camExtracMeta]" DisplayName="Extract/Unzip Files" ExtractToADedicatedFolder="True" FileToExtract="[downloadBrowser+arquivoBaixado.Name]" sap:VirtualizedContainerService.HintSize="510,215" sap2010:WorkflowViewState.IdRef="ExtractFiles_1" SkipUnsupportedFiles="False">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </uascw:ExtractFiles>
+      <ui:DeleteFileX DisplayName="Delete File" sap:VirtualizedContainerService.HintSize="510,61" sap2010:WorkflowViewState.IdRef="DeleteFileX_1" Path="[downloadBrowser+arquivoBaixado.Name]">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:DeleteFileX>
+      <Assign sap:VirtualizedContainerService.HintSize="510,70" sap2010:WorkflowViewState.IdRef="Assign_1">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:String">[nomeArquivobaixado]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String">[arquivoBaixado.Name. ToString.Replace(".zip","")]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <Assign sap:VirtualizedContainerService.HintSize="510,70" sap2010:WorkflowViewState.IdRef="Assign_2">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:String">[caminhoFinal]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String">[nomeArquivobaixado.Substring(0,20)+".csv"]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <ui:MoveFile ContinueOnError="{x:Null}" Destination="[caminhoExtracao]" DisplayName="Move File" sap:VirtualizedContainerService.HintSize="510,167" sap2010:WorkflowViewState.IdRef="MoveFile_1" Overwrite="True" Path="[camExtracMeta+nomeArquivobaixado+&quot;\&quot;+caminhoFinal]">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:MoveFile>
+      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="510,101" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Trace" Message="[rootpath+&quot;SQLAutomaticEntry\&quot;+caminhoFinal]">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:LogMessage>
+      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="510,61" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Trace" Message="[caminhoExtracao]">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:LogMessage>
+      <Assign sap:VirtualizedContainerService.HintSize="510,70" sap2010:WorkflowViewState.IdRef="Assign_3">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:String">[caminhoSQL]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String">[rootpath+"SQLAutomaticEntry\"+caminhoFinal]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <Assign sap:VirtualizedContainerService.HintSize="510,70" sap2010:WorkflowViewState.IdRef="Assign_4">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:String">[caminhoSQL]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String">[caminhoSQL.Replace("""","")]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <ui:CopyFile ContinueOnError="{x:Null}" Destination="[caminhoSQL]" DisplayName="Copy File - sql Automatic" sap:VirtualizedContainerService.HintSize="510,61" sap2010:WorkflowViewState.IdRef="CopyFile_1" Overwrite="True" Path="[caminhoExtracao]">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:CopyFile>
+      <ui:DeleteFolderX DisplayName="Delete Folder" sap:VirtualizedContainerService.HintSize="510,61" sap2010:WorkflowViewState.IdRef="DeleteFolderX_1" Path="[camExtracMeta+nomeArquivobaixado]" Recursive="True">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:DeleteFolderX>
+      <ui:SetTransactionProgress TimeoutMS="{x:Null}" DisplayName="Set Transaction Progress" sap:VirtualizedContainerService.HintSize="510,142" sap2010:WorkflowViewState.IdRef="SetTransactionProgress_1" Progress="formatação pendente" TransactionItem="[in_TransactionItem]">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:SetTransactionProgress>
+      <Assign sap:VirtualizedContainerService.HintSize="510,70" sap2010:WorkflowViewState.IdRef="Assign_5">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:Boolean">[StatusFormPend]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+        </Assign.Value>
+      </Assign>
+    </Sequence>
+  </Sequence>
+</Activity>
