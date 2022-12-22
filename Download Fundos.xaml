@@ -7,6 +7,7 @@
     <x:Property Name="caminhoExtracao" Type="InArgument(x:String)" />
     <x:Property Name="in_TransactionItem" Type="InArgument(ui:QueueItem)" />
     <x:Property Name="StatusFormPend" Type="OutArgument(x:Boolean)" />
+    <x:Property Name="rootpath" Type="InArgument(x:String)" />
   </x:Members>
   <this:Download_Fundos.downloadBrowser>
     <InArgument x:TypeArguments="x:String" />
@@ -20,10 +21,13 @@
   <this:Download_Fundos.in_TransactionItem>
     <InArgument x:TypeArguments="ui:QueueItem" />
   </this:Download_Fundos.in_TransactionItem>
+  <this:Download_Fundos.rootpath>
+    <InArgument x:TypeArguments="x:String" />
+  </this:Download_Fundos.rootpath>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>879,3085</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>754,3181</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Download_Fundos_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="34">
@@ -97,7 +101,7 @@
       <AssemblyReference>System.Memory</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Download_Fundos" sap:VirtualizedContainerService.HintSize="614,3020" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Download_Fundos" sap:VirtualizedContainerService.HintSize="654,3116" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Default="[&quot;Fundos de Investimento - Informes Diários (&quot;+mesStr+&quot;/&quot;+ano.ToString+&quot;)&quot;]" Name="innertext" />
       <Variable x:TypeArguments="si:FileInfo" Name="arquivoBaixado" />
@@ -107,11 +111,10 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence DisplayName="Extracao" sap:VirtualizedContainerService.HintSize="572,2930" sap2010:WorkflowViewState.IdRef="Sequence_4">
+    <Sequence DisplayName="Extracao" sap:VirtualizedContainerService.HintSize="592,2994" sap2010:WorkflowViewState.IdRef="Sequence_4">
       <Sequence.Variables>
         <Variable x:TypeArguments="x:String" Name="nomeArquivobaixado" />
         <Variable x:TypeArguments="x:String" Name="caminhoFinal" />
-        <Variable x:TypeArguments="x:String" Name="rootpath" />
         <Variable x:TypeArguments="x:String" Name="caminhoSQL" />
       </Sequence.Variables>
       <sap:WorkflowViewStateService.ViewState>
@@ -120,13 +123,13 @@
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <uix:NApplicationCard WebDriverMode="{x:Null}" AttachMode="SingleWindow" CloseMode="Always" DisplayName="Fundos de Investimento" sap:VirtualizedContainerService.HintSize="510,1069" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" ScopeGuid="d15123d1-ccd0-4196-a9d0-4d6b6e926fc9" Timeout="60" Version="V1">
+      <uix:NApplicationCard WebDriverMode="{x:Null}" AttachMode="SingleWindow" CloseMode="Always" DisplayName="Fundos de Investimento" sap:VirtualizedContainerService.HintSize="530,1133" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" ScopeGuid="d15123d1-ccd0-4196-a9d0-4d6b6e926fc9" Timeout="60" Version="V1">
         <uix:NApplicationCard.Body>
           <ActivityAction x:TypeArguments="x:Object">
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="Fazer" sap:VirtualizedContainerService.HintSize="476,843" sap2010:WorkflowViewState.IdRef="Sequence_3">
+            <Sequence DisplayName="Fazer" sap:VirtualizedContainerService.HintSize="496,907" sap2010:WorkflowViewState.IdRef="Sequence_3">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -144,10 +147,10 @@
                   </uix:TargetAnchorable>
                 </uix:NClick.Target>
               </uix:NClick>
-              <ui:GetLastDownloadedFile DisplayName="Wait for Download" DownloadFolder="[downloadBrowser]" File="[arquivoBaixado]" sap:VirtualizedContainerService.HintSize="434,473" sap2010:WorkflowViewState.IdRef="GetLastDownloadedFile_1" Timeout="300">
+              <ui:GetLastDownloadedFile DisplayName="Wait for Download" DownloadFolder="[downloadBrowser]" File="[arquivoBaixado]" sap:VirtualizedContainerService.HintSize="434,505" sap2010:WorkflowViewState.IdRef="GetLastDownloadedFile_1" Timeout="300">
                 <ui:GetLastDownloadedFile.Body>
                   <ActivityAction>
-                    <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="400,256" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                    <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="400,288" sap2010:WorkflowViewState.IdRef="Sequence_2">
                       <Sequence.Variables>
                         <Variable x:TypeArguments="x:String" Name="dataFundoInvestimento" />
                       </Sequence.Variables>
@@ -156,7 +159,7 @@
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <uix:NClick ClickType="Single" DisplayName="Click 'Botão - Ir para recurso'" sap:VirtualizedContainerService.HintSize="358,166" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="d15123d1-ccd0-4196-a9d0-4d6b6e926fc9" Version="V1">
+                      <uix:NClick ClickType="Single" DisplayName="Click 'Botão - Ir para recurso'" sap:VirtualizedContainerService.HintSize="338,166" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="d15123d1-ccd0-4196-a9d0-4d6b6e926fc9" Version="V1">
                         <uix:NClick.Target>
                           <uix:TargetAnchorable BrowserURL="http://dados.cvm.gov.br/dataset/fi-doc-inf_diario" ContentHash="R3WMxJLQL0ecEJmWcmwSBw" DesignTimeRectangle="1108, 506, 166, 26" ElementType="Text" FriendlyName="'Botão - Ir para recurso'" FullSelectorArgument="&lt;webctrl aaname='                                     Ir para recurso            *' href='http://dados.cvm.gov.br/dados/FI/DOC/INF_DIARIO/DADOS/inf_diario*' idx='12' parentid='dataset-resources' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='                                     Ir para recurso            *' href='http://dados.cvm.gov.br/dados/FI/DOC/INF_DIARIO/DADOS/inf_diario*' type='' parentid='dataset-resources' tag='A' class='resource-url-analytics' check:innerText='Ir para recurso' /&gt;" Guid="2283aa38-98a9-4f56-996d-6853223d3fa5" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAKoAAAAeCAYAAAC8LYXhAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIqSURBVHhe7ZxdbsJADIR7J27O/wucgkDgDS6ylau6slzvrkNYYqL5pJWIZ+w0K8shgPp1v9/T4XBIAERkuVymrusSGhWEhhr1dDqhUUFsMFHBR0CNervd0KggNpvNJvV9j0YFscFEBR/BdrtN1+sVjQpiE+Kpf7FY/FsASGiiXi6Xto1qNSIvJhcHgKCJ2vRhytt0nkb11gLzY71et731e5pLNigvi1wczJ/JJ6rVnLkcy6NzJdpj+aSmdT7WGh/ruAXr2svHOs7ktJyX4dc6l49ljJGapUdg0ok6dHOkz5NneXQNjdZL+YwVY56pUfJ7ckv5hPZrrNjU0EQ9n8/vb1SK8/IivZ48y1PLG3oOouTz/g3e8z6TO6ZeFCaZqBTjxXg2Z4yfycXkYiwvk8vRWJrO5cXI1xpL8+RSnJfE8udqTEnzz1FzF+3ZMI30DPUztfN6zlGrIbG0kp8YU69Wm6j5PTXeTYinfuIVG6yxPLUaQ3TGijFD/cSYerXaRM3vqfFuaKI2/cDfe9Gv2GANebSvVEP7tU7UcjSeGoSMab2mlXTCymE8/gjsdru2E5WgC68tD9LnyWEPn8PK0Zr0WH6ilKPx1LA8QzTpsfyEzpFIzdIj0Pw96pRE3XQwnP1+j0YF8cFEBR8BNSp+OA3CM+tbP5gPq9Wq/e9RARgL3fqbftcPwCugiYpbPwjP31eoj8cjHY/H3zAAsaCJ+vOfUtCoIDI0UbuuS9/lz4iSSOi2/QAAAABJRU5ErkJggg==" InformativeScreenshot="5cbdb0d86fe9ec96164e237583322b4e.png" Reference="Bv_A5Ya23E2Tr8jUxhCB5A/0EmRw64Zz0mj3Zpbm10n8g" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Fundos de Investimento: Documentos: Informe Diário - Conjuntos de dados - Portal Dados Abertos CVM' /&gt;" SearchSteps="FuzzySelector, Image" Visibility="Interactive" />
                         </uix:NClick.Target>
@@ -184,7 +187,7 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </uix:NApplicationCard>
-      <uascw:ExtractFiles DestinationFolderInfo="{x:Null}" Password="{x:Null}" CodePage="Default" DestinationFolder="[camExtracMeta]" DisplayName="Extract/Unzip Files" ExtractToADedicatedFolder="True" FileToExtract="[downloadBrowser+arquivoBaixado.Name]" sap:VirtualizedContainerService.HintSize="510,215" sap2010:WorkflowViewState.IdRef="ExtractFiles_1" SkipUnsupportedFiles="False">
+      <uascw:ExtractFiles DestinationFolderInfo="{x:Null}" Password="{x:Null}" CodePage="Default" DestinationFolder="[camExtracMeta]" DisplayName="Extract/Unzip Files" ExtractToADedicatedFolder="True" FileToExtract="[downloadBrowser+arquivoBaixado.Name]" sap:VirtualizedContainerService.HintSize="530,215" sap2010:WorkflowViewState.IdRef="ExtractFiles_1" SkipUnsupportedFiles="False">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -192,7 +195,7 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </uascw:ExtractFiles>
-      <ui:DeleteFileX DisplayName="Delete File" sap:VirtualizedContainerService.HintSize="510,61" sap2010:WorkflowViewState.IdRef="DeleteFileX_1" Path="[downloadBrowser+arquivoBaixado.Name]">
+      <ui:DeleteFileX DisplayName="Delete File" sap:VirtualizedContainerService.HintSize="530,61" sap2010:WorkflowViewState.IdRef="DeleteFileX_1" Path="[downloadBrowser+arquivoBaixado.Name]">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -200,7 +203,7 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </ui:DeleteFileX>
-      <Assign sap:VirtualizedContainerService.HintSize="510,70" sap2010:WorkflowViewState.IdRef="Assign_1">
+      <Assign sap:VirtualizedContainerService.HintSize="530,70" sap2010:WorkflowViewState.IdRef="Assign_1">
         <Assign.To>
           <OutArgument x:TypeArguments="x:String">[nomeArquivobaixado]</OutArgument>
         </Assign.To>
@@ -208,7 +211,7 @@
           <InArgument x:TypeArguments="x:String">[arquivoBaixado.Name. ToString.Replace(".zip","")]</InArgument>
         </Assign.Value>
       </Assign>
-      <Assign sap:VirtualizedContainerService.HintSize="510,70" sap2010:WorkflowViewState.IdRef="Assign_2">
+      <Assign sap:VirtualizedContainerService.HintSize="530,70" sap2010:WorkflowViewState.IdRef="Assign_2">
         <Assign.To>
           <OutArgument x:TypeArguments="x:String">[caminhoFinal]</OutArgument>
         </Assign.To>
@@ -216,7 +219,7 @@
           <InArgument x:TypeArguments="x:String">[nomeArquivobaixado.Substring(0,20)+".csv"]</InArgument>
         </Assign.Value>
       </Assign>
-      <ui:MoveFile ContinueOnError="{x:Null}" Destination="[caminhoExtracao]" DisplayName="Move File" sap:VirtualizedContainerService.HintSize="510,167" sap2010:WorkflowViewState.IdRef="MoveFile_1" Overwrite="True" Path="[camExtracMeta+nomeArquivobaixado+&quot;\&quot;+caminhoFinal]">
+      <ui:MoveFile ContinueOnError="{x:Null}" Destination="[caminhoExtracao]" DisplayName="Move File" sap:VirtualizedContainerService.HintSize="530,167" sap2010:WorkflowViewState.IdRef="MoveFile_1" Overwrite="True" Path="[camExtracMeta+nomeArquivobaixado+&quot;\&quot;+caminhoFinal]">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -224,7 +227,7 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </ui:MoveFile>
-      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="510,101" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Trace" Message="[rootpath+&quot;SQLAutomaticEntry\&quot;+caminhoFinal]">
+      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="530,101" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Trace" Message="[rootpath+&quot;SQLAutomaticEntry\&quot;+caminhoFinal]">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -232,7 +235,7 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </ui:LogMessage>
-      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="510,61" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Trace" Message="[caminhoExtracao]">
+      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="530,61" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Trace" Message="[caminhoExtracao]">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -240,7 +243,7 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </ui:LogMessage>
-      <Assign sap:VirtualizedContainerService.HintSize="510,70" sap2010:WorkflowViewState.IdRef="Assign_3">
+      <Assign sap:VirtualizedContainerService.HintSize="530,70" sap2010:WorkflowViewState.IdRef="Assign_3">
         <Assign.To>
           <OutArgument x:TypeArguments="x:String">[caminhoSQL]</OutArgument>
         </Assign.To>
@@ -248,7 +251,7 @@
           <InArgument x:TypeArguments="x:String">[rootpath+"SQLAutomaticEntry\"+caminhoFinal]</InArgument>
         </Assign.Value>
       </Assign>
-      <Assign sap:VirtualizedContainerService.HintSize="510,70" sap2010:WorkflowViewState.IdRef="Assign_4">
+      <Assign sap:VirtualizedContainerService.HintSize="530,70" sap2010:WorkflowViewState.IdRef="Assign_4">
         <Assign.To>
           <OutArgument x:TypeArguments="x:String">[caminhoSQL]</OutArgument>
         </Assign.To>
@@ -256,7 +259,7 @@
           <InArgument x:TypeArguments="x:String">[caminhoSQL.Replace("""","")]</InArgument>
         </Assign.Value>
       </Assign>
-      <ui:CopyFile ContinueOnError="{x:Null}" Destination="[caminhoSQL]" DisplayName="Copy File - sql Automatic" sap:VirtualizedContainerService.HintSize="510,61" sap2010:WorkflowViewState.IdRef="CopyFile_1" Overwrite="True" Path="[caminhoExtracao]">
+      <ui:CopyFile ContinueOnError="{x:Null}" Destination="[caminhoSQL]" DisplayName="Copy File - sql Automatic" sap:VirtualizedContainerService.HintSize="530,61" sap2010:WorkflowViewState.IdRef="CopyFile_1" Overwrite="True" Path="[caminhoExtracao]">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">False</x:Boolean>
