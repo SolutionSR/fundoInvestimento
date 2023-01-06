@@ -27,7 +27,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>754,3181</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>680,3079</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Download_Fundos_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="34">
@@ -101,7 +101,7 @@
       <AssemblyReference>System.Memory</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Download_Fundos" sap:VirtualizedContainerService.HintSize="654,3116" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Download_Fundos" sap:VirtualizedContainerService.HintSize="634,3014" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Default="[&quot;Fundos de Investimento - Informes Diários (&quot;+mesStr+&quot;/&quot;+ano.ToString+&quot;)&quot;]" Name="innertext" />
       <Variable x:TypeArguments="si:FileInfo" Name="arquivoBaixado" />
@@ -111,7 +111,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence DisplayName="Extracao" sap:VirtualizedContainerService.HintSize="592,2994" sap2010:WorkflowViewState.IdRef="Sequence_4">
+    <Sequence DisplayName="Extracao" sap:VirtualizedContainerService.HintSize="592,2926" sap2010:WorkflowViewState.IdRef="Sequence_4">
       <Sequence.Variables>
         <Variable x:TypeArguments="x:String" Name="nomeArquivobaixado" />
         <Variable x:TypeArguments="x:String" Name="caminhoFinal" />
@@ -123,20 +123,20 @@
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <uix:NApplicationCard WebDriverMode="{x:Null}" AttachMode="SingleWindow" CloseMode="Always" DisplayName="Fundos de Investimento" sap:VirtualizedContainerService.HintSize="530,1133" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" ScopeGuid="d15123d1-ccd0-4196-a9d0-4d6b6e926fc9" Timeout="60" Version="V1">
+      <uix:NApplicationCard WebDriverMode="{x:Null}" AttachMode="ByInstance" CloseMode="Always" DisplayName="Fundos de Investimento" sap:VirtualizedContainerService.HintSize="530,1076" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="WindowMessages" ScopeGuid="d15123d1-ccd0-4196-a9d0-4d6b6e926fc9" Timeout="60" Version="V1">
         <uix:NApplicationCard.Body>
           <ActivityAction x:TypeArguments="x:Object">
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="Fazer" sap:VirtualizedContainerService.HintSize="496,907" sap2010:WorkflowViewState.IdRef="Sequence_3">
+            <Sequence DisplayName="Fazer" sap:VirtualizedContainerService.HintSize="476,859" sap2010:WorkflowViewState.IdRef="Sequence_3">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:MaximizeWindow Window="{x:Null}" DisplayName="Maximize Window" sap:VirtualizedContainerService.HintSize="434,32" sap2010:WorkflowViewState.IdRef="MaximizeWindow_1" />
-              <uix:NClick ClickType="Single" DisplayName="Click 'Botão Explorar'" sap:VirtualizedContainerService.HintSize="434,166" sap2010:WorkflowViewState.IdRef="NClick_1" InteractionMode="Simulate" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="d15123d1-ccd0-4196-a9d0-4d6b6e926fc9" Version="V1">
+              <ui:MaximizeWindow Window="{x:Null}" DisplayName="Maximize Window" sap:VirtualizedContainerService.HintSize="434,25" sap2010:WorkflowViewState.IdRef="MaximizeWindow_1" />
+              <uix:NClick ClickType="Single" DisplayName="Click 'Botão Explorar'" sap:VirtualizedContainerService.HintSize="434,157" sap2010:WorkflowViewState.IdRef="NClick_1" InteractionMode="Simulate" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="d15123d1-ccd0-4196-a9d0-4d6b6e926fc9" Version="V1">
                 <uix:NClick.Target>
                   <uix:TargetAnchorable BrowserURL="http://dados.cvm.gov.br/dataset/fi-doc-inf_diario" ContentHash="rUDifBISLEWcv9zPliLBqg" DesignTimeRectangle="1107, 438, 115, 34" ElementType="Text" FriendlyName="'Botão Explorar'" FullSelectorArgument="&lt;webctrl aaname='              Explorar            ' idx='13' parentid='dataset-resources' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='              Explorar            ' type='' parentid='dataset-resources' tag='A' class='btn btn-primary dropdown-toggle' check:innerText='Explorar' /&gt;" Guid="17964462-0724-4f6f-a5f1-ff977acc1bb6" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAHcAAAAmCAYAAAD+6wTYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIJSURBVHhe7ZsxSgRBEEW9h6AeykgwM1IQTM0UcwXPsrlewQMYeJF2v/iXsvzd2zvOjE5ZHx5M16+e5LGbzV7JhE3KDZwvcl9e38rx3WM5PL0q+yeXyUKAL3iDP5uNXBRYOji7LkfnN+Xo4jZZCmtf8AZ/VvBGLsx/iFWXk0UAf/DIbOTCev5iF87aHzwyG7n475YXkkUBj0zKDUbKDUzKDUzKDUzKDcyschE1T6ZhdrmI6pLx+RW5iOpJK2p/KIzqIjCJ3N6ou6AVtT8URnURGF3urmm9Q3WE6Tkz7NSOmiO1zj/bM8O532VsPwWjyh2S1ntUR5htZx/26o6d2fT0tWy7NyWjyR0S9R7QSmuv1qmznQ25g3CmYPwZsXtTMpncbTuqJ63UdnvmTO+5d8fi4+d21/Owev7c+h506k6L0eWqjjCqszCq8zA9c6b33LujOkZ1LZTgIWLB7HLV3MOozuJT69TZzn5ypzZnaucW96unz+3y8ax2ephVbi+t+J1tZx/26o6d2ajezuzcx/f2TgtI/YlYMJpcgKj5rrTid3rODDu1o+ZIrfNz2yH27J/n4k/KHQNGdf+FUeX+JRjV/RdSbmDCyk1SbmhSbmBSbmBSbmCk3PycJAC1z0nyQ7DlU/0QLD/hXDBrX/AGf/ITTgQFzGMJ/93JMoAveLNikS9yM7GScsOmlHet+FWqciIcQQAAAABJRU5ErkJggg==" InformativeScreenshot="d9cfc0b858a767d5ca1e1bea5dc14bc5.png" Reference="Bv_A5Ya23E2Tr8jUxhCB5A/_lpSzhlqfEOO20-1XEG1dg" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Fundos de Investimento: Documentos: Informe Diário - Conjuntos de dados - Portal Dados Abertos CVM' /&gt;" SearchSteps="FuzzySelector" Visibility="Interactive">
                     <uix:TargetAnchorable.Anchors>
